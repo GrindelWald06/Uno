@@ -51,3 +51,10 @@ func clear_selection() -> void:
 		_card_nodes[_selected_card].set_selected(false)
 	_selected_card = null
 	card_selected.emit(null)
+
+func set_playable_cards(valid_cards: Array[Card]) -> void:
+	for card in _card_nodes:
+		var card_ui: CardUI = _card_nodes[card]
+		var playable = valid_cards.is_empty() or card in valid_cards
+		card_ui.modulate.a = 1.0 if playable else 0.4
+		card_ui.mouse_filter = Control.MOUSE_FILTER_STOP if playable else Control.MOUSE_FILTER_IGNORE
