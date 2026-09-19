@@ -22,13 +22,13 @@ func _ready() -> void:
 func setup_opponents(opponents:Array[Player]) -> void:
 	_clear_opponents()
 	for player in opponents:
-		var indicator = PlayerIndicatorScene.instanciate()
-		indicator.set_player_info(player.name, player.hand.size())
+		var indicator = PlayerIndicatorScene.instantiate()
 		_opponent_row.add_child(indicator)
+		indicator.set_player_info(player.name, player.hand.size())
 		_opponent_indicators[player] = indicator
 
 func _clear_opponents() -> void:
-	for indicator in _opponent_row:
+	for indicator in _opponent_row.get_children():
 		indicator.queue_free()
 	_opponent_indicators.clear()
 
