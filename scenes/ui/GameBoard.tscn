@@ -63,5 +63,5 @@ offset_top = -190.0
 offset_bottom = -20.0
 grow_vertical = 0
 
-[node name="ColorPickerUi" parent="." unique_id=1773106460 instance=ExtResource("4_y4vir")]
+[node name="ColorPickerUI" parent="." unique_id=1773106460 instance=ExtResource("4_y4vir")]
 layout_mode = 1

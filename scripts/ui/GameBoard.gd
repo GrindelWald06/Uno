@@ -13,9 +13,11 @@ var _opponent_indicators: Dictionary = {}
 signal card_selected(card: Card)
 signal draw_pile_pressed
 signal color_chosen(color: Enums.CardColor)
+signal card_confirmed(card: Card)
 
 func _ready() -> void:
 	_hand_ui.card_selected.connect(func(card): card_selected.emit(card))
+	_hand_ui.card_confirmed.connect(func(card): card_confirmed.emit(card))
 	_draw_pile_ui.draw_pile_pressed.connect(func(): draw_pile_pressed.emit())
 	_color_picker_ui.color_chosen.connect(func(color): color_chosen.emit(color))
 
@@ -63,3 +65,6 @@ func show_color_picker() -> void:
 
 func hide_color_picker() -> void:
 	_color_picker_ui.hide_picker()
+
+func set_hand_interactive(interactive: bool) -> void:
+	_hand_ui.set_interactive(interactive)

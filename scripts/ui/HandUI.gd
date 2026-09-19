@@ -1,6 +1,7 @@
 class_name HandUI extends Control
 
 signal card_selected(card: Card)
+signal card_confirmed(card: Card)
 
 const CardUIScene := preload("res://scenes/ui/CardUI.tscn")
 
@@ -30,9 +31,7 @@ func _clear():
 func _on_card_pressed(card:Card, card_ui:CardUI):
 	# If the card was already selected, unselect it
 	if _selected_card == card:
-		_selected_card = null
-		card_ui.set_selected(false)
-		card_selected.emit(null)
+		card_confirmed.emit(card)
 		return
 
 	# If a card in hand was already selected, unselect it
@@ -58,3 +57,9 @@ func set_playable_cards(valid_cards: Array[Card]) -> void:
 		var playable = valid_cards.is_empty() or card in valid_cards
 		card_ui.modulate.a = 1.0 if playable else 0.4
 		card_ui.mouse_filter = Control.MOUSE_FILTER_STOP if playable else Control.MOUSE_FILTER_IGNORE
+
+func set_interactive(interactive: bool) -> void:
+	for card in _card_nodes:
+		var card_ui: CardUI = _card_nodes[card]
+		card_ui.modulate.a = 1.0 if interactive else 0.5
+		card_ui.mouse_filter = Control.MOUSE_FILTER_STOP if interactive else Control.MOUSE_FILTER_IGNORE
