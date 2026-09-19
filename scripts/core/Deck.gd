@@ -5,7 +5,7 @@ var cards: Array[Card] = []
 
 func _init():
 	cards = Card.create_full_deck()
-	self.shuffle()
+	shuffle()
 
 func shuffle():
 	cards.shuffle()
@@ -25,3 +25,6 @@ func is_empty():
 func reshuffle_from_discard(discard_pile):
 	cards.append_array(discard_pile.reshuffle())
 	self.shuffle()
+
+func _to_string() -> String:
+	return "Current deck:\n" + "\n".join(cards.map(str))

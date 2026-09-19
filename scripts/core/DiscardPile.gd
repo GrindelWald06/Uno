@@ -17,3 +17,6 @@ func reshuffle() -> Array:
 	var cards_to_reshuffle = pile
 	pile = [top]
 	return cards_to_reshuffle
+
+func _to_string() -> String:
+	return "Current card: %s" % str(self.top_card())

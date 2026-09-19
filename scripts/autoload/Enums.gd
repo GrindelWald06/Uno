@@ -1,0 +1,13 @@
+extends Node
+
+enum GamePhase { WAITING, PLAYING, CHOOSING_COLOR, ROUND_OVER }
+enum CardColor { RED, YELLOW, GREEN, BLUE, WILD }
+
+enum CardType {
+	NUMBER,
+	SKIP,
+	REVERSE,
+	DRAW_TWO,
+	WILD,
+	WILD_DRAW_FOUR
+}
