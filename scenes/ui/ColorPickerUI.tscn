@@ -9,8 +9,36 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oermv"]
+bg_color = Color(0.68247557, 0.30349198, 0.30349198, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0g8b"]
+bg_color = Color(1.259032, 0.5837601, 0.5837601, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ske3x"]
 bg_color = Color(0.9776916, 0.9063318, 0.3491902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf0w1"]
+bg_color = Color(0.71772987, 0.6648484, 0.24767272, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thxs6"]
+bg_color = Color(1.321848, 1.227624, 0.48430148, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -23,8 +51,36 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuq2b"]
+bg_color = Color(0.30349198, 0.5825884, 0.38868985, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qg6an"]
+bg_color = Color(0.5837601, 1.0810534, 0.7355655, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66d6d"]
 bg_color = Color(0.3491902, 0.6262097, 0.8808251, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2mqn"]
+bg_color = Color(0.24767272, 0.4562606, 0.64722127, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00mdy"]
+bg_color = Color(0.48430148, 0.8559628, 1.196216, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -70,18 +126,26 @@ columns = 2
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_braas")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oermv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u0g8b")
 
 [node name="YellowButton" type="Button" parent="ButtonGrid" unique_id=1612292340]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ske3x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jf0w1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_thxs6")
 
 [node name="GreenButton" type="Button" parent="ButtonGrid" unique_id=611181406]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_15rwi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vuq2b")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qg6an")
 
 [node name="BlueButton" type="Button" parent="ButtonGrid" unique_id=712440730]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_66d6d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k2mqn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_00mdy")

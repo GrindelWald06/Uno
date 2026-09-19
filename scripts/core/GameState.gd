@@ -93,11 +93,6 @@ func _finish_turn_after_play(player: Player) -> void:
 
 	advance_turn()
 
-func submit_human_color(color: Enums.CardColor) -> void:
-	active_color = color
-	var current_player = players[current_player_id]
-	_finish_turn_after_play(current_player)
-
 func play_card(player:Player, card:Card):
 	print("Player %s plays %s" % [player.name, card])
 	apply_effect(player, card)
@@ -175,3 +170,10 @@ func submit_human_draw() -> void:
 		awaiting_human_move.emit(current_player, [drawn_card])
 	else:
 		advance_turn()
+
+func submit_human_color(color: Enums.CardColor) -> void:
+	active_color = color
+	var current_player = players[current_player_id]
+	_finish_turn_after_play(current_player)
+
+
