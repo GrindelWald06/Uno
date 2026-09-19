@@ -56,8 +56,7 @@ func start_turn():
 	if not current_player.has_valid_move(discard.top_card(), active_color):
 		print("Player %s has no valid card" % current_player.name)
 		if current_player.is_ai:
-			draw_card_for_player(current_player)
-			advance_turn()
+			_draw_and_resolve(current_player)
 		else:
 			awaiting_human_draw.emit(current_player)
 		return
@@ -80,7 +79,7 @@ func resolve_card_choice(player: Player, card: Card) -> void:
 	player.remove_card(card)
 	play_card(player, card)
 
-	var needs_color_choice := (card.type == Enums.CardType.WILD or card.type == Enums.CardType.WILD_DRAW_FOUR) and not player.is_ai
+	var needs_color_choice:bool = (card.type == Enums.CardType.WILD or card.type == Enums.CardType.WILD_DRAW_FOUR) and not player.is_ai
 	if needs_color_choice:
 		return  # Paused — waiting on submit_human_color() before this turn can finish.
 
@@ -144,14 +143,19 @@ func advance_turn():
 		current_player_id = (current_player_id - step + Config.NUMBER_OF_PLAYERS) % Config.NUMBER_OF_PLAYERS
 	start_turn()
 
-func draw_card_for_player(player:Player):
+func draw_card_for_player(player: Player) -> Card:
 	print("Player %s draws a card" % player.name)
 	var drawn_card = deck.draw_card()
+	player.add_card(drawn_card)
 	player_drew_card.emit(player, drawn_card)
+	return drawn_card
+
+func _draw_and_resolve(player: Player) -> void:
+	var drawn_card = draw_card_for_player(player)
 	if Utils.is_valid_move(drawn_card, discard.top_card(), active_color):
-		play_card(player, drawn_card)
+		resolve_card_choice(player, drawn_card)
 	else:
-		player.add_card(drawn_card)
+		advance_turn()
 
 func prompt_color(_player:Player):
 	active_color = Consts.VALID_COLORS.pick_random()
@@ -166,5 +170,8 @@ func submit_human_card(card: Card) -> void:
 
 func submit_human_draw() -> void:
 	var current_player = players[current_player_id]
-	draw_card_for_player(current_player)
-	advance_turn()
+	var drawn_card = draw_card_for_player(current_player)
+	if Utils.is_valid_move(drawn_card, discard.top_card(), active_color):
+		awaiting_human_move.emit(current_player, [drawn_card])
+	else:
+		advance_turn()
