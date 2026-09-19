@@ -1,6 +1,4 @@
-class_name Card
-extends RefCounted
-## Represents a single Uno card. Pure data + helpers — no scene, no visuals.
+class_name Card extends RefCounted
 
 var color: Enums.CardColor
 var type: Enums.CardType

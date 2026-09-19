@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bp46esnyoqy0m"]
+
+[ext_resource type="Script" uid="uid://dsk7mr1qrgfau" path="res://scripts/ui/PlayerIndicatorUI.gd" id="1_uhjlx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66d6d"]
+bg_color = Color(0.23392546, 0.23392549, 0.23392531, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PlayerIndicatorUI" type="PanelContainer" unique_id=1742136887]
+custom_minimum_size = Vector2(120, 60)
+theme_override_styles/panel = SubResource("StyleBoxFlat_66d6d")
+script = ExtResource("1_uhjlx")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1372710411]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="NameLabel" type="Label" parent="Content" unique_id=1939747817]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="CountLabel" type="Label" parent="Content" unique_id=481050976]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "7"
+horizontal_alignment = 1

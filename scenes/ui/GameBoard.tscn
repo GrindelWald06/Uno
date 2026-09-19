@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b0lqmlfobvjow"]
+
+[ext_resource type="PackedScene" uid="uid://0vhk1lq5rhff" path="res://scenes/ui/DiscardPileUI.tscn" id="1_15lme"]
+[ext_resource type="Script" uid="uid://boix3qdpp8bro" path="res://scripts/ui/GameBoard.gd" id="1_u0g8b"]
+[ext_resource type="PackedScene" uid="uid://23uh2l2wrn26" path="res://scenes/ui/DrawPileUI.tscn" id="2_u0g8b"]
+[ext_resource type="PackedScene" uid="uid://bl7klt5gng8iu" path="res://scenes/ui/HandUI.tscn" id="3_4ax66"]
+[ext_resource type="PackedScene" uid="uid://djacsuljt55ne" path="res://scenes/ui/ColorPickerUI.tscn" id="4_y4vir"]
+
+[node name="GameBoard" type="Control" unique_id=1386195967]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u0g8b")
+
+[node name="Background" type="ColorRect" parent="." unique_id=598871599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.3491902, 0.6262097, 0.48452926, 1)
+
+[node name="OpponentRow" type="HBoxContainer" parent="." unique_id=1411455633]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CenterPiles" type="HBoxContainer" parent="." unique_id=334006958]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="DiscardPileUI" parent="CenterPiles" unique_id=1136484842 instance=ExtResource("1_15lme")]
+layout_mode = 2
+
+[node name="DrawPileUI" parent="CenterPiles" unique_id=932481357 instance=ExtResource("2_u0g8b")]
+layout_mode = 2
+
+[node name="HandUI" parent="." unique_id=302569560 instance=ExtResource("3_4ax66")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+offset_top = -190.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="ColorPickerUi" parent="." unique_id=1773106460 instance=ExtResource("4_y4vir")]
+layout_mode = 1

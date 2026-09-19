@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://djacsuljt55ne"]
+
+[ext_resource type="Script" uid="uid://t8h3sqwwbw3e" path="res://scripts/ui/ColorPickerUI.gd" id="1_ske3x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_braas"]
+bg_color = Color(0.9309246, 0.42358288, 0.42358288, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ske3x"]
+bg_color = Color(0.9776916, 0.9063318, 0.3491902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15rwi"]
+bg_color = Color(0.42352942, 0.79607844, 0.5372549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66d6d"]
+bg_color = Color(0.3491902, 0.6262097, 0.8808251, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="ColorPickerUi" type="Control" unique_id=1773106460]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ske3x")
+
+[node name="Dimmer" type="ColorRect" parent="." unique_id=353753014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="ButtonGrid" type="GridContainer" parent="." unique_id=429912336]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="RedButton" type="Button" parent="ButtonGrid" unique_id=1958713854]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_braas")
+
+[node name="YellowButton" type="Button" parent="ButtonGrid" unique_id=1612292340]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ske3x")
+
+[node name="GreenButton" type="Button" parent="ButtonGrid" unique_id=611181406]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_15rwi")
+
+[node name="BlueButton" type="Button" parent="ButtonGrid" unique_id=712440730]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_66d6d")
